@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 import morgan from "morgan";
 import auth_route from "./routes/auth_route";
 import { error_handler } from "./middlewares/error_handler";
+import doctor_route from "./routes/doctor_route";
+import patient_route from "./routes/patient_route";
 
 const app = express();
 
@@ -19,6 +21,8 @@ if (process.env.NODE_ENV === "development") {
 }
 
 app.use("/api/v1/auth", auth_route);
+app.use("/api/v1/doctors", doctor_route);
+app.use("/api/v1/patients", patient_route);
 
 app.use(error_handler);
 
